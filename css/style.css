@@ -1242,6 +1242,7 @@ a.article-title:hover {
 .article-gallery .gallery-item {
   display: none;
   max-width: 100%;
+  width: 100px;
 }
 .article-gallery .gallery-item:before,
 .article-gallery .gallery-item:after {

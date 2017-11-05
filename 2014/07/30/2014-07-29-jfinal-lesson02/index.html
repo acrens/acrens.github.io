@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page1.jpg">
 <meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page2.jpg">
 <meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page3.jpg">
-<meta property="og:updated_time" content="2016-09-20T12:46:50.000Z">
+<meta property="og:updated_time" content="2017-11-05T05:28:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JFinal学习笔记-Demo 部署-lesson02">
 <meta name="twitter:description" content="JFinal 环境部署">
@@ -252,7 +252,7 @@
 <li>创建Web Project工程；</li>
 <li>在WEB-INFO文件目录下新建lib文件夹并放入四个jar包，然后build path；</li>
 <li><p>创建jfinalstudy01数据库并创建两张表student+classes，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function">create table <span class="title">classes</span></span></div><div class="line"><span class="params">(</span></div><div class="line">    classesid      <span class="keyword">int</span>(<span class="number">4</span>) not <span class="keyword">null</span>,</div><div class="line">    classesname    <span class="title">varchar</span><span class="params">(<span class="number">40</span>)</span>,</div><div class="line">    classesaddress <span class="title">varchar</span><span class="params">(<span class="number">60</span>)</span></div><div class="line">);</div><div class="line"><span class="function">create table <span class="title">student</span></span></div><div class="line"><span class="params">(</span></div><div class="line">    studentid   <span class="keyword">int</span>(<span class="number">4</span>) not <span class="keyword">null</span>,</div><div class="line">    studentname <span class="title">varchar</span><span class="params">(<span class="number">10</span>)</span>,</div><div class="line">    studentage  <span class="title">int</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">    studentsex  <span class="title">varchar</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">    classesid   <span class="title">int</span><span class="params">(<span class="number">4</span>)</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">create table classes</div><div class="line">(</div><div class="line">    <span class="function">classesid      <span class="title">int</span><span class="params">(<span class="number">4</span>)</span> not <span class="keyword">null</span>,</span></div><div class="line"><span class="function">    classesname    <span class="title">varchar</span><span class="params">(<span class="number">40</span>)</span>,</span></div><div class="line"><span class="function">    classesaddress <span class="title">varchar</span><span class="params">(<span class="number">60</span>)</span></span></div><div class="line"><span class="function">)</span>;</div><div class="line">create table student</div><div class="line">(</div><div class="line">    <span class="function">studentid   <span class="title">int</span><span class="params">(<span class="number">4</span>)</span> not <span class="keyword">null</span>,</span></div><div class="line"><span class="function">    studentname <span class="title">varchar</span><span class="params">(<span class="number">10</span>)</span>,</span></div><div class="line"><span class="function">    studentage  <span class="title">int</span><span class="params">(<span class="number">4</span>)</span>,</span></div><div class="line"><span class="function">    studentsex  <span class="title">varchar</span><span class="params">(<span class="number">4</span>)</span>,</span></div><div class="line"><span class="function">    classesid   <span class="title">int</span><span class="params">(<span class="number">4</span>)</span></span></div><div class="line"><span class="function">)</span>;</div></pre></td></tr></table></figure>
 </li>
 <li><p>添加以下配置至web.xml（同时新建JFinalAllConfig类）:</p>
 <p><img src="/css/images/jfinal-allconfig.jpg" alt=""></p>
@@ -309,7 +309,7 @@
 
 </div>
 
-    <a data-url="https://acrens.github.io/2014/07/30/2014-07-29-jfinal-lesson02/" data-id="cj0qt08x5000ac3x1jkdkt5hr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="https://acrens.github.io/2014/07/30/2014-07-29-jfinal-lesson02/" data-id="cj9melbst00023jyqkven0mov" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -561,6 +561,10 @@
         <h3 class="widget-title">链接</h3>
         <div class="widget">
             <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
                 
             </ul>
         </div>
