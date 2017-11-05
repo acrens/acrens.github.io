@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>XSS 防御之战 | acrens - F2E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="XSS 防御之战">
+<meta name="keywords" content="XSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS 防御之战">
+<meta property="og:url" content="https://acrens.github.io/2016/09/12/xss-1/index.html">
+<meta property="og:site_name" content="acrens - F2E">
+<meta property="og:description" content="XSS 防御之战">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2016-09-13T11:53:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS 防御之战">
+<meta name="twitter:description" content="XSS 防御之战">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">acrens - F2E</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/logo.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/logo.png" />
+            <h2 id="name">acrens</h2>
+            <h3 id="title">Web F2E Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>HangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/acrens/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                11
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                16
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/acrens" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-xss-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            XSS 防御之战
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/09/12/xss-1/">
+            <time datetime="2016-09-11T22:34:00.000Z" itemprop="datePublished">2016-09-11</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/XSS/">XSS</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/XSS/">XSS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>写这篇文章主要是为了记录下最近项目开发中遇到的一个问题及解决过程；XSS 相信大家都知道，其相关知识就不在这里多讲；本篇文章主要侧重前端在获得后端给予的数据时是如何防御 XSS。 看到这里应该有人会说，后端都已经给你进行了 XSS 过滤，前端还需要做这些干什么，我的答案是：永远不要相信别人给你的东西是和你想要的 100% 一致。<br><a id="more"></a></p>
+</blockquote>
+<h3 id="防御-XSS-攻击"><a href="#防御-XSS-攻击" class="headerlink" title="防御 XSS 攻击"></a>防御 XSS 攻击</h3><h3 id="项目场景"><a href="#项目场景" class="headerlink" title="项目场景"></a>项目场景</h3><ol>
+<li>前端基于 RESTful 风格 API 异步获取后端数据；</li>
+<li>数据渲染都是通过 underscore template 渲染页面。</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>封装一个过滤特殊字符【如：&lt;、&gt;、%、@等】全局方法，供渲染数据之前调用。</p>
+<p>但是发现项目是通过 underscore template 渲染页面的，想想可以在这里做点手脚；经过一番调研，果真如此，template 提供两种变量获取数据的方式，分别为：&lt;%= variable %&gt;、&lt;%- variable %&gt;。</p>
+<ol>
+<li>&lt;%= variable %&gt; 不对数据做任何处理；</li>
+<li>&lt;%- variable %&gt; 对数据进行 HTML 转义（即特殊字符转义）。</li>
+</ol>
+<p>经过多次尝试，现在有四种选择方案：</p>
+<ol>
+<li><p>&lt;%= variable %&gt; &amp; html(str)<br>存在问题：如果后台未进行 XSS 防御，前台过滤无效：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.J-content'</span>).html(_.template(<span class="string">'&lt;%=content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&lt;script&gt;alert(1);&lt;/script&gt;'</span>&#125;));</div></pre></td></tr></table></figure>
+</li>
+<li><p>&lt;%= variable %&gt; &amp; text( str)<br>存在问题：如果后台进行了 XSS 防御，前台展示数据未还原：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.J-content'</span>).text(_.template(<span class="string">'&lt;%=content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&amp;lt;script&amp;gt;alert(1);&amp;lt;/script&amp;gt;'</span>&#125;));</div></pre></td></tr></table></figure>
+</li>
+<li><p>&lt;%- variable %&gt; &amp; html(str)<br>存在问题：如果后台进行了 XSS 防御，前台展示数据未还原：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.J-content'</span>).html(_.template(<span class="string">'&lt;%-content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&amp;lt;script&amp;gt;alert(1);&amp;lt;/script&amp;gt;'</span>&#125;));</div></pre></td></tr></table></figure>
+</li>
+<li><p>&lt;%- variable %&gt; &amp; text(str)<br>存在问题：不管后台进行还是没进行 XSS 防御，前台展示数据均未还原：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.J-content'</span>).text(_.template(<span class="string">'&lt;%-content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&amp;lt;script&amp;gt;alert(1);&amp;lt;/script&amp;gt;'</span>&#125;));</div><div class="line"></div><div class="line">$(<span class="string">'.J-content'</span>).text(_.template(<span class="string">'&lt;%-content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&lt;script&gt;alert(1);&lt;/script&gt;'</span>&#125;));</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>灵机一动的我细心一想上述四种方法不可能不行，后台找到了原因所在，是因为 html 和 text 方法的区别，html 方法渲染页面会讲转义字符转换为 HTML 代码，text 方法渲染页面只是纯粹的内容替换，但是 html 方法只能将 &amp;amp 渲染成单独的 &amp;，所以通过 &lt;%- variable %&gt; 转义 &amp;lt 成 &amp;amp\;lt 之后再由 html 方法渲染在页面显示为 &amp;lt，所以通过 replace 方法替换所有 &amp;amp，如下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.J-content'</span>).html(_.template(<span class="string">'&lt;%-content%&gt;'</span>, &#123;<span class="attr">content</span>: <span class="string">'&amp;lt;script&amp;gt;alert(1);&amp;lt;/script&amp;gt;'</span>&#125;).replace(<span class="regexp">/&amp;amp;/g</span>, <span class="string">'&amp;'</span>));</div></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://acrens.github.io/2016/09/12/xss-1/" data-id="cj0qt08yw0014c3x1fey3p1wf" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/09/21/2016-09-20-fe_unit_test/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    来，加入前端自动化单元测试
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/07/03/2016-07-03-performance/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">浅谈网站性能之前端性能优化</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/05/2017-11-04-mugu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/05/2017-11-04-mugu/" class="title">加入新公司的第 45 天</a></p>
+                            <p class="item-date"><time datetime="2017-11-05T13:30:00.000Z" itemprop="datePublished">2017-11-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/23/2017-03-22-reflow&repaint/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/浏览器渲染/">浏览器渲染</a></p>
+                            <p class="item-title"><a href="/2017/03/23/2017-03-22-reflow&repaint/" class="title">浏览器渲染那些事之 Reflow、Repaint</a></p>
+                            <p class="item-date"><time datetime="2017-03-22T22:09:00.000Z" itemprop="datePublished">2017-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/12/2017-03-11-lihe-height/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/line-height/">line-height</a></p>
+                            <p class="item-title"><a href="/2017/03/12/2017-03-11-lihe-height/" class="title">line-height 取值方式</a></p>
+                            <p class="item-date"><time datetime="2017-03-11T17:30:00.000Z" itemprop="datePublished">2017-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/22/2017-01-22-TDZ/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TDZ（Temporal-Dead-Zone）/">TDZ（Temporal Dead Zone）</a></p>
+                            <p class="item-title"><a href="/2017/01/22/2017-01-22-TDZ/" class="title">javascript 中 TDZ 的理解</a></p>
+                            <p class="item-date"><time datetime="2017-01-22T14:15:00.000Z" itemprop="datePublished">2017-01-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/30/2016-11-29-fe_team/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FE-team/">FE team</a></p>
+                            <p class="item-title"><a href="/2016/11/30/2016-11-29-fe_team/" class="title">关于组建一支精良团队的构想</a></p>
+                            <p class="item-date"><time datetime="2016-11-29T21:38:00.000Z" itemprop="datePublished">2016-11-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FE-team/">FE team</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JFinal/">JFinal</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Promise/">Promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDZ（Temporal-Dead-Zone）/">TDZ（Temporal Dead Zone）</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS/">XSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/line-height/">line-height</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端性能优化/">前端性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器渲染/">浏览器渲染</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化单元测试/">自动化单元测试</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JFinal/">JFinal</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reflow/">Reflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Repaint/">Repaint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDZ/">TDZ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Temporal-Dead-Zone/">Temporal Dead Zone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-unit-test/">auto-unit-test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/line-height/">line-height</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端团队/">前端团队</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单元测试/">单元测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构想/">构想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精良/">精良</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JFinal/" style="font-size: 20px;">JFinal</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Reflow/" style="font-size: 10px;">Reflow</a> <a href="/tags/Repaint/" style="font-size: 10px;">Repaint</a> <a href="/tags/TDZ/" style="font-size: 10px;">TDZ</a> <a href="/tags/Temporal-Dead-Zone/" style="font-size: 10px;">Temporal Dead Zone</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/auto-unit-test/" style="font-size: 10px;">auto-unit-test</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/line-height/" style="font-size: 10px;">line-height</a> <a href="/tags/前端团队/" style="font-size: 10px;">前端团队</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/构想/" style="font-size: 10px;">构想</a> <a href="/tags/精良/" style="font-size: 10px;">精良</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 acrens<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

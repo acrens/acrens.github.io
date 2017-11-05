@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JFinal学习笔记-Demo 部署-lesson02 | acrens - F2E</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="JFinal 环境部署">
+<meta name="keywords" content="JFinal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JFinal学习笔记-Demo 部署-lesson02">
+<meta property="og:url" content="https://acrens.github.io/2014/07/30/2014-07-29-jfinal-lesson02/index.html">
+<meta property="og:site_name" content="acrens - F2E">
+<meta property="og:description" content="JFinal 环境部署">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-jar.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-allconfig.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-index1.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-index2.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-add1.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-add2.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-change1.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-html-change2.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-css-common.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-css-add.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-css-index.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-root.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page1.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page2.jpg">
+<meta property="og:image" content="https://acrens.github.io/css/images/jfinal-page3.jpg">
+<meta property="og:updated_time" content="2016-09-20T12:46:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JFinal学习笔记-Demo 部署-lesson02">
+<meta name="twitter:description" content="JFinal 环境部署">
+<meta name="twitter:image" content="https://acrens.github.io/css/images/jfinal-jar.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">acrens - F2E</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/logo.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/logo.png" />
+            <h2 id="name">acrens</h2>
+            <h3 id="title">Web F2E Developer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>HangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/acrens/">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                11
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                16
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/acrens" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-2014-07-29-jfinal-lesson02" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            JFinal学习笔记-Demo 部署-lesson02
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2014/07/30/2014-07-29-jfinal-lesson02/">
+            <time datetime="2014-07-29T22:18:24.000Z" itemprop="datePublished">2014-07-29</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/JFinal/">JFinal</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JFinal/">JFinal</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <blockquote>
+<p>延续 JFinal lesson01，开始搭建一个 JFinal 案例<br><a id="more"></a></p>
+</blockquote>
+<h3 id="JFinal-是-JAVA-极速-WEB-开发的开源框架"><a href="#JFinal-是-JAVA-极速-WEB-开发的开源框架" class="headerlink" title="JFinal 是 JAVA 极速 WEB 开发的开源框架"></a>JFinal 是 JAVA 极速 WEB 开发的开源框架</h3><p>一、环境：MyEclipse9+Tomcat6+MySql;<br>二、准备 jar 包，如下图：<br><img src="/css/images/jfinal-jar.jpg" alt=""><br>三、开始在MyEclipse9+Tomcat6+MySql部署一个学生信息管理小Demo：</p>
+<ol>
+<li>创建Web Project工程；</li>
+<li>在WEB-INFO文件目录下新建lib文件夹并放入四个jar包，然后build path；</li>
+<li><p>创建jfinalstudy01数据库并创建两张表student+classes，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function">create table <span class="title">classes</span></span></div><div class="line"><span class="params">(</span></div><div class="line">    classesid      <span class="keyword">int</span>(<span class="number">4</span>) not <span class="keyword">null</span>,</div><div class="line">    classesname    <span class="title">varchar</span><span class="params">(<span class="number">40</span>)</span>,</div><div class="line">    classesaddress <span class="title">varchar</span><span class="params">(<span class="number">60</span>)</span></div><div class="line">);</div><div class="line"><span class="function">create table <span class="title">student</span></span></div><div class="line"><span class="params">(</span></div><div class="line">    studentid   <span class="keyword">int</span>(<span class="number">4</span>) not <span class="keyword">null</span>,</div><div class="line">    studentname <span class="title">varchar</span><span class="params">(<span class="number">10</span>)</span>,</div><div class="line">    studentage  <span class="title">int</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">    studentsex  <span class="title">varchar</span><span class="params">(<span class="number">4</span>)</span>,</div><div class="line">    classesid   <span class="title">int</span><span class="params">(<span class="number">4</span>)</span></div><div class="line">);</div></pre></td></tr></table></figure>
+</li>
+<li><p>添加以下配置至web.xml（同时新建JFinalAllConfig类）:</p>
+<p><img src="/css/images/jfinal-allconfig.jpg" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JFinalAllConfig</span> <span class="keyword">extends</span> <span class="title">JFinalConfig</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configConstant</span><span class="params">(Constants me)</span> </span>&#123;</div><div class="line">           me.setDevMode(<span class="keyword">true</span>);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configRoute</span><span class="params">(Routes me)</span> </span>&#123;</div><div class="line">           me.add(<span class="string">"/"</span>, StudentController.class);</div><div class="line">           me.add(<span class="string">"/student"</span>, StudentController.class);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configPlugin</span><span class="params">(Plugins me)</span> </span>&#123;</div><div class="line">           C3p0Plugin cp = <span class="keyword">new</span> C3p0Plugin(</div><div class="line">                           <span class="string">"jdbc:mysql://localhost:3306/JFinalStudy01"</span>, <span class="string">"root"</span>, <span class="string">""</span>);</div><div class="line">           me.add(cp);</div><div class="line">           ActiveRecordPlugin arp = <span class="keyword">new</span> ActiveRecordPlugin(cp);</div><div class="line">           me.add(arp);</div><div class="line">        </div><div class="line">           <span class="comment">// 三个参数依次为表名、主键、model</span></div><div class="line">           arp.addMapping(<span class="string">"student"</span>, <span class="string">"studentid"</span>, Student.class);</div><div class="line">           arp.addMapping(<span class="string">"classes"</span>, <span class="string">"classesid"</span>, Classes.class);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configInterceptor</span><span class="params">(Interceptors me)</span> </span>&#123;</div><div class="line">           <span class="comment">// TODO Auto-generated method stub</span></div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configHandler</span><span class="params">(Handlers me)</span> </span>&#123;</div><div class="line">           <span class="comment">// TODO Auto-generated method stub</span></div><div class="line"></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>新建Student、Classes的model：</p>
+<ul>
+<li><p>Student：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.phy.jfinal.model;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jfinal.plugin.activerecord.Model;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Model</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Student dao = <span class="keyword">new</span> Student();</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> Classes <span class="title">getClasses</span><span class="params">()</span> </span>&#123;</div><div class="line">               <span class="keyword">return</span> Classes.dao.findById(get(<span class="string">"classesid"</span>));</div><div class="line">       &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Classes：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.phy.jfinal.model;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jfinal.plugin.activerecord.Model;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Classes</span> <span class="keyword">extends</span> <span class="title">Model</span> </span>&#123;</div><div class="line">        </div><div class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</div><div class="line">    </div><div class="line">       <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Classes dao = <span class="keyword">new</span> Classes();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>新建StudentController（接收HTTP请求处理的控制器）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.phy.jfinal.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jfinal.aop.Before;</div><div class="line"><span class="keyword">import</span> com.jfinal.core.Controller;</div><div class="line"><span class="keyword">import</span> com.phy.jfinal.interceptor.StudentInterceptor;</div><div class="line"><span class="keyword">import</span> com.phy.jfinal.model.Student;</div><div class="line"><span class="keyword">import</span> com.phy.jfinal.validator.StudentValidator;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</div><div class="line">           <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line"></div><div class="line">             <span class="comment">// 进行获取学生信息列表前的拦截操作</span></div><div class="line">           <span class="meta">@Before</span>(StudentInterceptor.class)</div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line">                   List list = Student.dao.find(<span class="string">"select * from student"</span>);</div><div class="line">                   setAttr(<span class="string">"studentList"</span>, list);</div><div class="line">                   render(<span class="string">"/index.html"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</div><div class="line">                   render(<span class="string">"/add.html"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">()</span> </span>&#123;</div><div class="line">                   <span class="comment">// 获取url请求中第一个值</span></div><div class="line">                   Student.dao.deleteById(getParaToInt());</div><div class="line">                   forwardAction(<span class="string">"/student"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</div><div class="line">                   Student student = getModel(Student.class);</div><div class="line">                   student.update();</div><div class="line">                   forwardAction(<span class="string">"/student"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">                   Student student = Student.dao.findById(getParaToInt());</div><div class="line">                   setAttr(<span class="string">"student"</span>, student);</div><div class="line">                   render(<span class="string">"/index2.html"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">          <span class="comment">//StudentValidator是对进行保存操作时的变量的验证</span></div><div class="line">         <span class="meta">@Before</span>(StudentValidator.class)</div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span> </span>&#123;</div><div class="line">                  Student student = getModel(Student.class);</div><div class="line">                  student.set(<span class="string">"studentid"</span>, num++).save();</div><div class="line">                  forwardAction(<span class="string">"/student"</span>);</div><div class="line">          &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>拦截器及验证器：</p>
+<ul>
+<li><p>拦截器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.phy.jfinal.interceptor;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jfinal.aop.Interceptor;</div><div class="line"><span class="keyword">import</span> com.jfinal.core.ActionInvocation;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentInterceptor</span> <span class="keyword">implements</span> <span class="title">Interceptor</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">intercept</span><span class="params">(ActionInvocation ai)</span> </span>&#123;</div><div class="line">               System.out.println(<span class="string">"action注入之前"</span>);</div><div class="line">                   ai.invoke();</div><div class="line">               System.out.println(<span class="string">"action注入之后"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.phy.jfinal.validator;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jfinal.core.Controller;</div><div class="line"><span class="keyword">import</span> com.jfinal.validate.Validator;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentValidator</span> <span class="keyword">extends</span> <span class="title">Validator</span> </span>&#123;</div><div class="line"></div><div class="line">       <span class="comment">//在校验失败时才会调用</span></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleError</span><span class="params">(Controller controller)</span> </span>&#123;</div><div class="line">               controller.keepPara(<span class="string">"student.studentname"</span>);<span class="comment">//将提交的值再传回页面以便保持原先输入的值</span></div><div class="line">                 controller.render(<span class="string">"/add.html"</span>);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">validate</span><span class="params">(Controller controller)</span> </span>&#123;</div><div class="line">               <span class="comment">//验证表单域name，返回信息key,返回信息value</span></div><div class="line">               validateRequiredString(<span class="string">"student.studentname"</span>, <span class="string">"studentnameMsg"</span>,</div><div class="line">                       <span class="string">"请输入学生名称!"</span>);</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>前台实现（通过freemarker读取数据），在WebRoot目录下新建index.html，add.html，change.html(分别为学生信息列表获取、学生信息添加、学生信息修改，下面依次列出实现代码)：</p>
+<ul>
+<li>index.html<br><img src="/css/images/jfinal-html-index1.jpg" alt=""><br><img src="/css/images/jfinal-html-index2.jpg" alt=""></li>
+<li>add.html<br><img src="/css/images/jfinal-html-add1.jpg" alt=""><br><img src="/css/images/jfinal-html-add2.jpg" alt=""></li>
+<li>change.html<br><img src="/css/images/jfinal-html-change1.jpg" alt=""><br><img src="/css/images/jfinal-html-change2.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>三个CSS文件（添加在WebRoot目录下的css文件夹下：</p>
+<ul>
+<li>common.css<br><img src="/css/images/jfinal-css-common.jpg" alt=""></li>
+<li>add.css<br><img src="/css/images/jfinal-css-add.jpg" alt=""></li>
+<li>index.css<br><img src="/css/images/jfinal-css-index.jpg" alt=""></li>
+</ul>
+</li>
+<li><p>以下分别为整体项目目录结构及相关截图：</p>
+<p><img src="/css/images/jfinal-root.jpg" alt=""><br><img src="/css/images/jfinal-page1.jpg" alt=""><br><img src="/css/images/jfinal-page2.jpg" alt=""><br><img src="/css/images/jfinal-page3.jpg" alt=""></p>
+</li>
+</ol>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://acrens.github.io/2014/07/30/2014-07-29-jfinal-lesson02/" data-id="cj0qt08x5000ac3x1jkdkt5hr" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/06/29/2016-06-29-promise/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Promise 讲解
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2014/07/29/2014-07-28-jfinal-lesson01/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">JFinal学习笔记-知识介绍-lesson01</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/11/05/2017-11-04-mugu/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/11/05/2017-11-04-mugu/" class="title">加入新公司的第 45 天</a></p>
+                            <p class="item-date"><time datetime="2017-11-05T13:30:00.000Z" itemprop="datePublished">2017-11-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/23/2017-03-22-reflow&repaint/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/浏览器渲染/">浏览器渲染</a></p>
+                            <p class="item-title"><a href="/2017/03/23/2017-03-22-reflow&repaint/" class="title">浏览器渲染那些事之 Reflow、Repaint</a></p>
+                            <p class="item-date"><time datetime="2017-03-22T22:09:00.000Z" itemprop="datePublished">2017-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/12/2017-03-11-lihe-height/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/line-height/">line-height</a></p>
+                            <p class="item-title"><a href="/2017/03/12/2017-03-11-lihe-height/" class="title">line-height 取值方式</a></p>
+                            <p class="item-date"><time datetime="2017-03-11T17:30:00.000Z" itemprop="datePublished">2017-03-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/22/2017-01-22-TDZ/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TDZ（Temporal-Dead-Zone）/">TDZ（Temporal Dead Zone）</a></p>
+                            <p class="item-title"><a href="/2017/01/22/2017-01-22-TDZ/" class="title">javascript 中 TDZ 的理解</a></p>
+                            <p class="item-date"><time datetime="2017-01-22T14:15:00.000Z" itemprop="datePublished">2017-01-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/11/30/2016-11-29-fe_team/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FE-team/">FE team</a></p>
+                            <p class="item-title"><a href="/2016/11/30/2016-11-29-fe_team/" class="title">关于组建一支精良团队的构想</a></p>
+                            <p class="item-date"><time datetime="2016-11-29T21:38:00.000Z" itemprop="datePublished">2016-11-29</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FE-team/">FE team</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JFinal/">JFinal</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Promise/">Promise</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/TDZ（Temporal-Dead-Zone）/">TDZ（Temporal Dead Zone）</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XSS/">XSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/line-height/">line-height</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端性能优化/">前端性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/浏览器渲染/">浏览器渲染</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/自动化单元测试/">自动化单元测试</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JFinal/">JFinal</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promise/">Promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Reflow/">Reflow</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Repaint/">Repaint</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TDZ/">TDZ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Temporal-Dead-Zone/">Temporal Dead Zone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XSS/">XSS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-unit-test/">auto-unit-test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/line-height/">line-height</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端团队/">前端团队</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单元测试/">单元测试</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构想/">构想</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/精良/">精良</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JFinal/" style="font-size: 20px;">JFinal</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Reflow/" style="font-size: 10px;">Reflow</a> <a href="/tags/Repaint/" style="font-size: 10px;">Repaint</a> <a href="/tags/TDZ/" style="font-size: 10px;">TDZ</a> <a href="/tags/Temporal-Dead-Zone/" style="font-size: 10px;">Temporal Dead Zone</a> <a href="/tags/XSS/" style="font-size: 10px;">XSS</a> <a href="/tags/auto-unit-test/" style="font-size: 10px;">auto-unit-test</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/line-height/" style="font-size: 10px;">line-height</a> <a href="/tags/前端团队/" style="font-size: 10px;">前端团队</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/构想/" style="font-size: 10px;">构想</a> <a href="/tags/精良/" style="font-size: 10px;">精良</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 acrens<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
